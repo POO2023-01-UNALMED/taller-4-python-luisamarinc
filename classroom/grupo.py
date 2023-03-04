@@ -1,5 +1,4 @@
-from classroom.asignatura import *
-
+from classroom.asignatura import Asignatura
 class Grupo:
     grado = "Grado 12"
 
@@ -9,19 +8,17 @@ class Grupo:
         self.listadoAlumnos = estudiantes
 
     def listadoAsignaturas(self, **kwargs):
-        if self._asignaturas is None:
-             self._asignaturas = []
         for x in kwargs.values():
             self._asignaturas.append(Asignatura(x))
 
     def agregarAlumno(self, alumno, lista=None):
-        if lista is None:
-            lista = []
+        if lista == None:
+            lista=[]
         lista.append(alumno)
         self.listadoAlumnos = self.listadoAlumnos + lista
 
     def __str__(self):
-         return "Grupo estudiantes:" + self._grupo
+         return "Grupo estudiantes: " + self._grupo
 
  
     @ classmethod
